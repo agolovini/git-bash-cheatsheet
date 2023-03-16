@@ -7,37 +7,40 @@ At first introduce yourseld, **--global** meaning it is applied to an operating 
 `$ git config --global user.name "Alexey Golovin" `  
 
 
-git clone git@git.lab.karpov.courses:lab/first_project.git  
-название репозитория  
-git pull  
-git branch alexey_golovin_09.09_al-golovin/project_variant2  
-создание ветки  
-git add .; git commit -m "Головин А, проект вариант 2, старт потока-09.09_версия 2,исправлен стиль pep8"  
+Запуск и проброс ключей SSH через агента:
+старт агента .ssh:
+`eval "$(ssh-agent -s)"`
+
+загрузка ключа в агента: (ключи уже созданы и загружены в репозиторий)
+`ssh-add ~/.ssh/id_ed25519`   (id_ed25519 - название файла с ключом)
+
+проверка соединения ssh:
+`ssh -T git@github.com`
+*Hi agolovini! You've successfully authenticated, but GitHub does not provide shell access.*  (сообщение если ок)
+
+
+Работа с репозиторием:
+Клонируем репозиторий
+`git clone git@github.com:agolovini/airflow-dag.git`
+Стягиваем все изменения из репозитория в локальную папку
+`git pull`
+
+создание ветки
+`git branch alexey_golovin_09.09_al-golovin/project_variant2`
+
 добавление файла и делаем коммит с комментарием
-git push origin alexey_golovin_09.09_al-golovin/project_variant2  
-пушим изменения в репозиторий   
-Дополнительные команды (создание ключей, просмотр папки):  
-просмотр ключа:  
-cat golovini.pub   (предварительно переходим в папку .ssh - cd .ssh/)  
-просмотр содержимого папки текущей:  
-ls -la
-создание ключа
-$ ssh-keygen -t ed25519 -C "your_email@example.com"
-старт агента .ssh:  
-$ eval "$(ssh-agent -s)"  
-загрузка ключа в агента:  
-$ ssh-add ~/.ssh/id_ed25519     (id_ed25519 - название файла с ключом)  
-проверка соединения ssh:    
-ssh -T git@github.com
-Hi agolovini! You've successfully authenticated, but GitHub does not provide shell access.  (сообщение если ок)  
+`git add .; git commit -m "Головин А, проект вариант 2, старт потока-09.09_версия 2,исправлен стиль pep8"`
 
-## Create Instance  
+пушим изменения в репозиторий
+`git push origin alexey_golovin_09.09_al-golovin/project_variant2`
 
-You can create an instance with the following code and use `getHtml()` and `getMarkdown()` of the [Editor](https://github.com/nhn/tui.editor).
 
-```bash
-const editor = new Editor(options);
-```
+Дополнительные команды (просмотр папки, файлов с ключами):
+просмотр файла с ключом:
+`cat golovini.pub`   (предварительно переходим в папку .ssh - cd .ssh/)
+ 
+просмотр содержимого папки текущей:
+`ls -la`
 
-> See the table below for default options
-> More API information can be found in the document
+смена директории
+`cd /nameofdir/`
